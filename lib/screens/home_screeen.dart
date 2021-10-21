@@ -1,3 +1,4 @@
+import 'package:analog_clock_light_and_dark_theme/screens/components/body.dart';
 import 'package:analog_clock_light_and_dark_theme/sinze_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,16 +10,21 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: SvgPicture.asset(
-            "assets/icons/Settings.svg",
-            color: Theme.of(context).iconTheme.color,
-          ),
-          onPressed: () {},
+      appBar: buildAppBar(context),
+      body: const Body(),
+    );
+  }
+
+  AppBar buildAppBar(BuildContext context) {
+    return AppBar(
+      leading: IconButton(
+        icon: SvgPicture.asset(
+          "assets/icons/Settings.svg",
+          color: Theme.of(context).iconTheme.color,
         ),
-        actions: [buildAddButton(context)],
+        onPressed: () {},
       ),
+      actions: [buildAddButton(context)],
     );
   }
 
